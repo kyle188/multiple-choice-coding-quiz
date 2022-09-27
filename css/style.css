@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+.rules-page {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.rules-page p {
+    font-size: 25px;
+    
+}
+
+#start-btn {
+    background-color: blueviolet;
+}
+
+.container {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
