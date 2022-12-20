@@ -1,23 +1,47 @@
 var start = document.getElementById("start")
 var startBtn = document.getElementById("start-btn")
-var question = document.getElementById("question")
+var questionTitle = document.getElementById("questionTitle")
 var opt1 = document.getElementById("option-1")
 var opt2 = document.getElementById("option-2")
 var opt3 = document.getElementById("option-3")
 var opt4 = document.getElementById("option-4")
+var timeEl = document.querySelector(".time");
+var mainEl = document.getElementById("main");
+var questionIndex = 0
+
+var secondsLeft = 75;
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + "seconds left";
+
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 7500);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 var questions = [
         {
-            question : "Commonly used data types DO NOT include:",
-            option1 : "1.strings",
-            option2 : "2.booleans",
-            option3 : "alerts",
-            option4 : "numbers"
+            question: "Commonly used data types DO NOT include:",
+            options: ["1.strings", "2.booleans", "3. alerts", "4. numbers"],
+            correctAnswer: "3.alerts"
         },{
             question : "The condition in an if/else statement is enclosed within _____.",
-            option1 : "quotes",
-            option2 : "curly brackets",
-            option3 : "parenthesis",
-            option4 : "square brackets"
+            options: ["quotes", "2.curly brackets", "3. parenthesis", "4.square brackets"],
+            correctAnswer: "3.parenthesis"
         },{
             question : "Arrays in JavaScript can be used to store _____.",
             option1 : "numbers and strings",
@@ -40,13 +64,34 @@ var questions = [
     ];
     
 function renderQuestion() {
-    var q = questions[0];
+    setTime();
+    questionTitle.textContent = questions[questionIndex].question;
+    opt1.textContent = questions[questionIndex].options[0];
+    opt2.textContent = questions[questionIndex].options[1];
+    opt3.textContent = questions[questionIndex].options[2];
+    opt4.textContent = questions[questionIndex].options[3];
 
-    question.innerHTML = "<p>" + q.question + "</p>";
-    opt1.innerHTML = questions[0].innerHTML;
+    // var optionsArray = questions[0].options
+    // console.log(optionsArray)
+    // var q = questions[0];
+    // var o = questions[0].options
+  
+
+    // question.innerHTML = "<p>" + q.question + "</p>";
+    // opt1.innerHTML = "<p>" + optionsArray[0] + "</p>"
+    // opt2.innerHTML = "<p>" + optionsArray[1] + "</p>"
+    // opt3.innerHTML = "<p>" + optionsArray[2] + "</p>"
+    // opt4.innerHTML = "<p>" + optionsArray[3] + "</p>"
 }
+
+function checkAnswer(answer) {
+    
+}
+
+
 function startQuiz() {
     start.style.display = "none";
     renderQuestion();
 }
 startBtn.addEventListener("click", startQuiz)
+
