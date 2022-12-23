@@ -1,6 +1,7 @@
 var start = document.getElementById("start")
 var startBtn = document.getElementById("start-btn")
 var questionTitle = document.getElementById("questionTitle")
+var questionDiv = document.getElementById("questionDiv")
 var opt1 = document.getElementById("option-1")
 var opt2 = document.getElementById("option-2")
 var opt3 = document.getElementById("option-3")
@@ -8,6 +9,9 @@ var opt4 = document.getElementById("option-4")
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var answerCheck = document.getElementById("checkAnswer");
+var results = document.getElementById("results")
+var enterInitialsBtn = document.getElementById("enterInitialsBtn")
+var userInitials = document.getElementById("userInitials")
 var questionIndex = 0
 var secondsLeft = 75;
 
@@ -74,8 +78,6 @@ function checkAnswer(answer) {
         } else {
             console.log("GameOver")
         }
-        
-
 }
 
 function chose1() { checkAnswer(0) }
@@ -83,14 +85,21 @@ function chose2() { checkAnswer(1) }
 function chose3() { checkAnswer(2) }
 function chose4() { checkAnswer(3) }
 
+function gameOver() {
+    results.style.display = "block";
+    questionDiv.style.display = "none";
+}
 function startQuiz() {
     start.style.display = "none";
     renderQuestion();
 }
 
 startBtn.addEventListener("click", startQuiz)
+
 opt1.addEventListener("click", chose1);
 opt2.addEventListener("click", chose2);
 opt3.addEventListener("click", chose3);
 opt4.addEventListener("click", chose4);
+
+
 
