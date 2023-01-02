@@ -10,8 +10,10 @@ var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var checkAnswer = document.getElementById("checkAnswer");
 var results = document.getElementById("results")
-var enterInitialsBtn = document.getElementById("enterInitialsBtn")
+var submitInitialsBtn = document.getElementById("enterInitialsBtn")
 var userInitials = document.getElementById("userInitials")
+var finalScore = document.getElementById("finalScore")
+var initialsForm = document.getElementById("initialsForm")
 var questionIndex = 0
 var secondsLeft = 75;
 
@@ -26,7 +28,6 @@ var secondsLeft = 75;
 //     }, 7500);
 // }
 timeEl.style.display = "inline";
-// timeEl.style.display = "none";
 questionDiv.style.display = "none";
 checkAnswer.style.display = "none";
 checkAnswer.textContent = "";
@@ -122,9 +123,11 @@ function chose4() { verifyAnswer(3) }
 
 function endGame() {
     results.style.display = "block";
+    finalScore.textContent = "Your final score is: " + secondsLeft;
+    initialsForm.style.display = "block";
     questionDiv.style.display = "none";
-    start.style.display= "none"
-    timeEl.style.display= "none"
+    start.style.display= "none";
+    timeEl.style.display= "none";
 }
 
 
@@ -135,3 +138,4 @@ opt1.addEventListener("click", chose1);
 opt2.addEventListener("click", chose2);
 opt3.addEventListener("click", chose3);
 opt4.addEventListener("click", chose4);
+
