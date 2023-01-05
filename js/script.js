@@ -10,10 +10,14 @@ var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var checkAnswer = document.getElementById("checkAnswer");
 var results = document.getElementById("results")
-var submitInitialsBtn = document.getElementById("enterInitialsBtn")
+var submitInitialsBtn = document.getElementById("submitInitialsBtn")
 var userInitials = document.getElementById("userInitials")
 var finalScore = document.getElementById("finalScore")
 var initialsForm = document.getElementById("initialsForm")
+var userInitials = document.getElementById("userInitials")
+var highScoresText = document.getElementById("highScoresText")
+var highScoreList = document.getElementById("highScoreList")
+var backButton = document.getElementById("backButton")
 var questionIndex = 0
 var secondsLeft = 75;
 
@@ -31,6 +35,7 @@ timeEl.style.display = "inline";
 questionDiv.style.display = "none";
 checkAnswer.style.display = "none";
 checkAnswer.textContent = "";
+highScoresText.style.display = "none"
 
 function startQuiz() {
     questionIndex = 0;
@@ -99,20 +104,21 @@ function verifyAnswer(answer) {
     if (questions[questionIndex].answer ===
         questions[questionIndex].options[answer]) {
             answer++;
-            // checkAnswer.style.display = "block";
+    
             checkAnswer.textContent = "Correct!";
-        } else {
-            // checkAnswer.style.display = "block";
+        } else if(questions[questionIndex].answer !=
+            questions[questionIndex].options[answer]){
+
             checkAnswer.textContent = "Wrong!";
             secondsLeft -= 10;
             timeEl.textContent = "Time: " + secondsLeft;
         }
-
         questionIndex++;
+
         if (questionIndex < questions.length) {
             renderQuestion();
-        } else {
-            endGame()
+            } else {
+              endGame()
         }
 }
 
@@ -130,7 +136,70 @@ function endGame() {
     timeEl.style.display= "none";
 }
 
+function saveScore(event) {
+    event.preventDefault();
 
+    if (userInitials.value === "") {
+        alert("Enter initials to continue!");
+        return;
+    } 
+
+    results.style.display = "none";
+    initialsForm.style.display = "none";
+    questionDiv.style.display = "none";
+    start.style.display= "none";
+    timeEl.style.display= "none";
+    highScoresText.style.display = "block";
+    finalScore.style.display = "none"
+
+    var getScores = localStorage.getItem("high scores");
+    var scoreArray;
+
+    if (getScores === null) {
+        scoreArray = [];        
+    } else {
+        scoreArray = JSON.parse(getScores);
+    }
+
+    var userScore = {
+        initials: userInitials.value,
+        score: secondsLeft
+    };
+    console.log(userScore)
+    scoreArray.push(userScore);
+
+    var storeScore = JSON.stringify(scoreArray);
+    console.log(storeScore)
+    localStorage.setItem("high scores", storeScore);
+
+    postScores();
+}
+
+var i = 0;
+function postScores() {
+    
+    results.style.display = "none";
+    initialsForm.style.display = "none";
+    questionDiv.style.display = "none";
+    start.style.display= "none";
+    timeEl.style.display= "none";
+    highScoresText.style.display = "block";
+    finalScore.style.display = "none";
+
+    var getScores = localStorage.getItem("high scores");
+
+    if (getScores === null) {
+        return;
+    }
+    console.log(getScores)
+    var savedScores = JSON.parse(getScores);
+
+    for (; i < savedScores.length; i++) {
+        var newScore = document.createElement("p");
+        newScore.innerHTML = savedScores[i].initials + ": " + savedScores[i].score;
+        highScoreList.appendChild(newScore)
+    }
+}
 
 startBtn.addEventListener("click", startQuiz)
 
@@ -139,3 +208,12 @@ opt2.addEventListener("click", chose2);
 opt3.addEventListener("click", chose3);
 opt4.addEventListener("click", chose4);
 
+submitInitialsBtn.addEventListener("click", function(event) {
+    saveScore(event);
+});
+
+backButton.addEventListener("click", function(event) {
+    start.style.display = "block";
+    highScoresText.style.display = "none"
+    
+})
