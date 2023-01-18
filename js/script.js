@@ -17,7 +17,8 @@ var initialsForm = document.getElementById("initialsForm")
 var userInitials = document.getElementById("userInitials")
 var highScoresText = document.getElementById("highScoresText")
 var highScoreList = document.getElementById("highScoreList")
-var backButton = document.getElementById("backButton")
+var backBtn = document.getElementById("backBtn")
+var clearScoresBtn = document.getElementById("clearScoresBtn")
 var questionIndex = 0
 var secondsLeft = 75;
 
@@ -212,8 +213,17 @@ submitInitialsBtn.addEventListener("click", function(event) {
     saveScore(event);
 });
 
-backButton.addEventListener("click", function(event) {
+backBtn.addEventListener("click", function(event) {
     start.style.display = "block";
     highScoresText.style.display = "none"
+})
+
+clearScoresBtn.addEventListener("click", function() {
+    localStorage.removeItem("high scores");
+    highScoreList.innerHTML = " "
+    start.style.display = "block";
+    alert('Scores Cleared!')
+    highScoresText.innerHTML = " "
     
 })
+

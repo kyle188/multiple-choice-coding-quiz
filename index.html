@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,75 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Quiz</title>
 </head>
+
 <body>
-    <h1 class="time"
-    style="text-align:center;"></h1>
-    <div id="main"></div>
-    <div class="container">
-    <div id="start" class="rules-page"
-    <h1>Coding Quiz Challenge</h1>
-    <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score by ten seconds!</p>
-    <button id="start-btn" class="btn">Start Quiz</button>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-left">
+                <a href="#" id="viewHighScore">View Highscores</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col text-right">
+        <h1 class="time"></h1>
     </div>
 
-    <div id="questionDiv">
-        <p id="questionTitle" class=""></p>
-        <button> <div id="option-1" class="options"></button>
-        <button><div id="option-2" class="options"></button>
-        <button><div id="option-3" class="options"></button>
-        <button><div id="option-4" class="options"></button>
-        <p id="answerCheck" style="display: none;"></p>
+    <div id="main"></div>
+    <div class="container">
+        <div id="start" class="rules-page">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score by ten seconds!</p>
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+
+        <div id="questionDiv">
+            <p id="questionTitle" class=""></p>
+            <p><button>
+                    <div id="option-1" class="options">
+                </button></p>
+            <p><button>
+                    <div id="option-2" class="options">
+                </button></p>
+            <p><button>
+                    <div id="option-3" class="options">
+                </button></p>
+            <p><button>
+                    <div id="option-4" class="options">
+                </button></p>
+        </div>
+
+        <div id="checkAnswer" style="display: none">
+        </div>
+
+        <div id="finalScore"></div>
     </div>
+
+    <div id="results" style="display:
+    none;">
+        <form>
+            <p class="pt-2 pb-3 m-2" id="initialsForm">Enter Your Initials: <input id="userInitials"
+                    class="form-control pt-2 pb-3 mt-2" type="text">
+                <button type="submit" id="submitInitialsBtn" class="btn btn-info mt-3">Submit</button>
+            </p>
+        </form>
+    </div>
+    <div id="highScoresText" style="text-align: center">
+        <h2>Highscores</h2>
+        <div id="highScoreList" class="list-group"> 
+            <p>
+            <button type="submit" id="backBtn">Go Back</button>
+            <button type="submit" id="clearScoresBtn">Clear Highscores</button>
+            </p>
+    </div>
+
 
 
 
         <script src="./js/script.js"></script>
-        </body>
-        </html>
-       
+</body>
+
+</html>
