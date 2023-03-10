@@ -106,11 +106,11 @@ function verifyAnswer(answer) {
         questions[questionIndex].options[answer]) {
             answer++;
     
-            checkAnswer.textContent = "Correct!";
+            checkAnswer.textContent = "CORRECT!";
         } else if(questions[questionIndex].answer !=
             questions[questionIndex].options[answer]){
 
-            checkAnswer.textContent = "Wrong!";
+            checkAnswer.textContent = "INCORRECT!";
             secondsLeft -= 10;
             timeEl.textContent = "Time: " + secondsLeft;
         }

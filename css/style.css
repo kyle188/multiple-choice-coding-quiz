@@ -3,7 +3,22 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    font-size: 30px;
+    font-size: 40px;
+    background-color: rgb(50, 5, 250);
+    color: rgb(255, 255, 255);
+    line-height: 1.25;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 50px;
+    padding-bottom: 30px;
+    color: rgb(240, 205, 6);
+    text-decoration: underline;
+}
+
+p {
+    padding-bottom: 10px;
 }
 
 .rules-page {
@@ -12,12 +27,12 @@
 }
 
 .rules-page p {
-    font-size: 25px;
-    
+    font-size: 30px;
 }
 
 #start-btn {
-    background-color: blueviolet;
+    background-color: rgb(11, 193, 248);
+    color:rgb(22, 20, 156);
 }
 
 .container {
@@ -44,9 +59,19 @@
 }
 
 #viewHighScore {
-    font-size: 20px;
+    font-size: 25px;
+    color: rgb(240, 205, 6);
 }
 
 #start {
     justify-content: center;
+}
+
+#questionTitle {
+    font-size: 40px;
+    padding-bottom: 50px;
+}
+
+.options {
+    font-size: 30px;
 }
