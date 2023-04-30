@@ -16,7 +16,7 @@ https://kyle188.github.io/multiple-choice-coding-quiz/
 
 ## Usage
 
-*  Click Start buttomn to begin quiz
+*  Click Start button to begin quiz
 
 ![demo](./assets/coding-quiz-screenshot-start.jpg)
 
