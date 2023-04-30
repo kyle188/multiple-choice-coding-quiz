@@ -34,6 +34,6 @@ https://kyle188.github.io/multiple-choice-coding-quiz/
 * HTML
 * CSS
 
-## License
+## Questions
 
-MIT
+Feel free to email me at kybar089@gmail.com or look at my [Github](https://github.com/kyle188)
